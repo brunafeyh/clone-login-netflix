@@ -1,0 +1,182 @@
+<html>
+<head>
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+      background: url("https://i.ibb.co/YQhqJbH/cartoes-netflix.jpg") no-repeat center center fixed;
+      background-size: cover;
+    }
+
+    .container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+    }
+
+    .logo {
+      width: 200px;
+      margin-bottom: 20px;
+    }
+
+    .form-wrapper {
+      width: 400px;
+      max-width: 90%;
+      background: rgba(0, 0, 0, 0.8);
+      border-radius: 10px;
+      padding: 20px;
+      box-shadow: 0 0 10px rgba(255, 255, 255, 0.2);
+    }
+
+    .form-title {
+      color: white;
+      font-size: 24px;
+      text-align: center;
+      margin-bottom: 20px;
+    }
+
+    .form-control {
+      display: flex;
+      flex-direction: column;
+      margin-bottom: 10px;
+    }
+
+    .form-control input {
+      width: 100%;
+      height: 40px;
+      border: none;
+      border-radius: 5px;
+      padding: 10px;
+      font-size: 16px;
+    }
+
+    .form-control label {
+      color: white;
+      font-size: 14px;
+      margin-top: 5px;
+    }
+
+    .form-button {
+      width: 100%;
+      height: 40px;
+      border: none;
+      border-radius: 5px;
+      background: #e50914;
+      color: white;
+      font-size: 16px;
+      font-weight: bold;
+      margin-bottom: 10px;
+      cursor: pointer;
+    }
+
+    .form-button:hover {
+      background: #f40612;
+    }
+
+    .form-help {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      color: white;
+      font-size: 14px;
+    }
+
+    .form-help a {
+      color: white;
+      text-decoration: none;
+    }
+
+    .form-help a:hover {
+      text-decoration: underline;
+    }
+
+    .form-footer {
+      color: white;
+      font-size: 14px;
+      text-align: center;
+      margin-top: 10px;
+    }
+
+    .form-footer a {
+      color: white;
+      text-decoration: none;
+    }
+
+    .form-footer a:hover {
+      text-decoration: underline;
+    }
+
+    .form-small {
+      color: white;
+      font-size: 12px;
+      text-align: center;
+      margin-top: 10px;
+    }
+
+    .form-small a {
+      color: white;
+      text-decoration: none;
+    }
+
+    .form-small a:hover {
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <img src="https://assets.stickpng.com/images/580b57fcd9996e24bc43c529.png" class="logo" alt="Netflix logo">
+    <div class="form-wrapper">
+      <div class="form-title">Entrar</div>
+      <form id="form" onsubmit="return validateForm()">
+        <div class="form-control">
+          <input type="text" id="email" required>
+          <label for="email">Email ou número de telefone</label>
+        </div>
+        <div class="form-control">
+          <input type="password" id="password" required>
+          <label for="password">Senha</label>
+        </div>
+        <button type="submit" class="form-button">Entrar</button>
+        <div class="form-help">
+          <div>
+            <input type="checkbox" id="remember-me">
+            <label for="remember-me">Lembre-se de mim</label>
+          </div>
+          <a href="#">Precisa de ajuda?</a>
+        </div>
+      </form>
+      <div class="form-footer">
+        Novo por aqui? <a href="#">Assine agora.</a>
+      </div>
+      <div class="form-small">
+        Esta página é protegida pelo Google reCAPTCHA para garantir que você não é um robô. <a href="#">Saiba mais.</a>
+      </div>
+    </div>
+  </div>
+  <script>
+    function validateForm() {
+      var email = document.getElementById("email").value;
+      var password = document.getElementById("password").value;
+      var emailRegex = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/;
+      var phoneRegex = /^\+?[0-9]{10,13}$/;
+      if (email == "" || password == "") {
+        alert("Por favor, preencha todos os campos.");
+        return false;
+      } else if (!emailRegex.test(email) && !phoneRegex.test(email)) {
+        alert("Por favor, digite um email ou número de telefone válido.");
+        return false;
+      } else {
+        return true;
+      }
+    }
+  </script>
+</body>
+</html>
